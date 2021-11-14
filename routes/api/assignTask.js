@@ -49,10 +49,8 @@ router.post('/',
                 });
             }
 
-            console.log(teamMembers);
-
             res.json({
-                message : `Task is allocated to ${teamMembers}`
+                message : `Task is allocated to ${teamMembers.teamMemberName}`
             });
         } catch (err) {
             console.error(err.message);

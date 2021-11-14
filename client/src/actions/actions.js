@@ -32,7 +32,7 @@ export const assignTask = (formData) => async dispatch => {
 
         dispatch({
             type: SET_MESSAGE,
-            payload: res.data
+            payload: res.data.message
         });
 
     } catch (error) {

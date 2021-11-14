@@ -7,7 +7,6 @@ const reducer = (state = initialState, action) => {
 
     switch (type) {
         case GET_TEAM:
-            console.log(payload);
             return [ ...payload ];
         case RESET_TEAM:
             return [];

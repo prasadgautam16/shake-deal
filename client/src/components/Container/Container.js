@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import './Container.css';
-import { Form, Button, InputGroup, Alert } from 'react-bootstrap';
+import { Form, Button, InputGroup, Alert, Spinner } from 'react-bootstrap';
 import { getAllTeam, assignTask } from '../../actions/actions';
 
 const Container = ({ getAllTeam, assignTask, team, message }) => {
@@ -37,7 +37,6 @@ const Container = ({ getAllTeam, assignTask, team, message }) => {
 
     const onSubmit = async (e) => {
         e.preventDefault();
-        console.log(formData);
         try {
             assignTask(formData);
         } catch (err) {
@@ -45,7 +44,7 @@ const Container = ({ getAllTeam, assignTask, team, message }) => {
         }
     }
 
-    const showMessagge = {message} ? <Alert>{message}</Alert> : null;
+    const showMessagge = message !== '' ? <Alert>{ message }</Alert> : '';
 
     return (
         <>
@@ -58,7 +57,7 @@ const Container = ({ getAllTeam, assignTask, team, message }) => {
             <Form.Group className="mb-3" >
                 <Form.Label>Select a Team</Form.Label>
                 <InputGroup className="listGroup">
-                    {teamItem}
+                    {teamItem ? teamItem : <Spinner animation="border" />}
                 </InputGroup>
             </Form.Group>
             <Button variant="primary" type="submit">
