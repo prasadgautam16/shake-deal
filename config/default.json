@@ -1,0 +1,3 @@
+{
+    "mongoURI" : "mongodb+srv://dbVish:dbVish@cluster0.trenm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+}

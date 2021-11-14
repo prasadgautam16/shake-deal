@@ -1,0 +1,32 @@
+{
+  "name": "shake-deal",
+  "version": "1.0.0",
+  "description": "Interview Practice Question Basic Repo",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server",
+    "server": "nodemon server",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prasadgautam16/shake-deal.git"
+  },
+  "author": "Gautam Prasad",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/prasadgautam16/shake-deal/issues"
+  },
+  "homepage": "https://github.com/prasadgautam16/shake-deal#readme",
+  "dependencies": {
+    "config": "^3.3.6",
+    "express": "^4.17.1",
+    "express-validator": "^6.13.0",
+    "mongoose": "^6.0.12"
+  },
+  "devDependencies": {
+    "concurrently": "^6.4.0",
+    "nodemon": "^2.0.15"
+  }
+}
