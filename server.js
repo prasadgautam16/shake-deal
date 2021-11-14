@@ -1,5 +1,4 @@
 const express = require('express');
-const { connect } = require('mongoose');
 
 const app = express();
 
@@ -20,4 +19,7 @@ app.listen(PORT, () => {
 
 connectDB();
 
-app.use('/api/users', require('./routes/api/user'));
+app.use('/api/teams', require('./routes/api/team'));
+app.use('/api/teamMembers', require('./routes/api/teamMember'));
+app.use('/api/tasks', require('./routes/api/task'));
+app.use('/api/assignTask', require('./routes/api/assignTask'));

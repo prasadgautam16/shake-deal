@@ -8,14 +8,14 @@ const {
 } = require('express-validator');
 
 
-const User = require('../../models/User');
+const Task = require('../../models/Task');
 
-// @route   POST api/users
-// @desc    Register User
+// @route   POST api/tasks
+// @desc    Register Task
 // @access  Public
 router.post('/',
     [
-        check('name', 'Name is required').not().isEmpty()
+        check('taskContent', 'Task Content is required').not().isEmpty()
     ],
     async (req, res) => {
         const errors = validationResult(req);
@@ -27,19 +27,19 @@ router.post('/',
         }
 
         const {
-            name
+            taskContent
         } = req.body;
 
         try {
-            const user = new User({
-                name
+            const task = new Task({
+                taskContent
             });
 
-            await user.save();
+            await task.save();
 
             const payload = {
-                user: {
-                    id: user.id
+                task: {
+                    id: task.id
                 }
             }
             res.json({

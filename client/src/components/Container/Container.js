@@ -5,12 +5,12 @@ import axios from 'axios';
 
 
 const Container = (props) => {
-
+    const team = ['TeamA', 'TeamB']
     const [ formData, setFormData] = useState({
-        name: ''
+        task: ''
     })
 
-    const { name } = formData;
+    const { task } = formData;
 
     const onChange = (e) => {
         return setFormData({...formData, [e.target.name]: e.target.value});
@@ -20,8 +20,9 @@ const Container = (props) => {
         e.preventDefault();
         console.log(formData);
         try {
-            const newUser = {
-                name
+
+            const task = {
+                task
             }
 
             const config = {
@@ -30,11 +31,11 @@ const Container = (props) => {
                 }
             }
 
-            const body = JSON.stringify(newUser);
+            const body = JSON.stringify(task);
 
-            const res =  await axios.post('api/users', body, config);
+            // const res =  await axios.post('api/users', body, config);
 
-            console.log(res.data);
+            // console.log(res.data);
 
         } catch(err) {
             console.error(err.response.data);
@@ -45,8 +46,8 @@ const Container = (props) => {
     return (
         <Form onSubmit={e => onSubmit(e)}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Name</Form.Label>
-                <Form.Control type="text" name='name' placeholder="Enter Name" value={name} onChange={e => onChange(e)}/>
+                <Form.Label>Enter task description</Form.Label>
+                <Form.Control type="text" name='task' placeholder="Enter Name" value={task} onChange={e => onChange(e)}/>
             </Form.Group>
             <Button variant="primary" type="submit">
                 Submit
